@@ -47,9 +47,6 @@ use App\Conference;
 					<div>{{ Author::pluck('name','id')[$paper->author_id] }}</div>
 				</td>
 				<td class="table-text">
-					<div>{{ Conference::pluck('name','id')[$paper->conf_id] }}</div>
-				</td>
-				<td class="table-text">
 					<div>
 					<a href="{{ route('paper.destroy', $paper->id) }}">Delete</a>
 					</div>

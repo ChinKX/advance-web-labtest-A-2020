@@ -36,11 +36,7 @@ use App\Division;
 			</tr>
 			<tr>
 				<td>Author Name</td>
-				<td>{{ $paper->author()->name }}</td>
-			</tr>
-			<tr>
-				<td>Conference Name</td>
-				<td>{{ $paper->conference()->name }}</td>
+				<td>{{ $paper->author->name }}</td>
 			</tr>
 		</tbody>
 	</table>

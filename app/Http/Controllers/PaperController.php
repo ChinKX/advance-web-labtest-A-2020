@@ -17,7 +17,7 @@ class PaperController extends Controller
      */
     public function index()
     {
-        $papers = Paper::with(['author', 'conference'])->get();
+        $papers = Paper::with('author')->get();
 
 		return view('papers.index', [
 		    'papers' => $papers,
@@ -65,7 +65,7 @@ class PaperController extends Controller
      */
     public function show($id)
     {
-        $paper = Paper::with(['author', 'conference'])->find($id);
+        $paper = Paper::with('author')->find($id);
 		if(!$paper) throw new ModelNotFoundException;
 	
 		return view('papers.show', [
