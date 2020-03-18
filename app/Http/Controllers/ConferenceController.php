@@ -1,0 +1,79 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Conference;
+use Illuminate\Http\Request;
+use App\Http\Requests\SaveConferenceRequest;
+
+class ConferenceController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return Conference::all();
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(SaveConferenceRequest $request)
+    {
+        if ($request->validated()) {
+            $conference = Conference::create($request->all());
+
+            $conference->authors()->sync($request->get('authors'));
+
+            return $conference;
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return Conference::findOrFail($id);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $conference = Conference::findOrFail($id);
+        $conference->update($request->all());
+
+        $conference->authors()->sync($request->get('authors'));
+
+        return $conference;
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $conference = Conference::findOrFail($id);
+        $conference->delete();
+    
+        return 204;
+    }
+}
