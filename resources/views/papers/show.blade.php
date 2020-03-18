@@ -1,8 +1,5 @@
 <?php
 
-use App\Common;
-use App\Division;
-
 ?>
 @extends('layouts.app')
 
@@ -23,8 +20,8 @@ use App\Division;
 		<!-- Table Body -->
 		<tbody>
 			<tr>
-				<td class="table-text">
 				<td>Paper Name</td>
+				<td class="table-text">	
 					<div>{{ $paper->name }}</div>
 				</td>
 			</tr>
@@ -37,6 +34,10 @@ use App\Division;
 			<tr>
 				<td>Author Name</td>
 				<td>{{ $paper->author->name }}</td>
+			</tr>
+			<tr>
+				<td>Conference Name</td>
+				<td>{{ $paper->conference->name }}</td>
 			</tr>
 		</tbody>
 	</table>

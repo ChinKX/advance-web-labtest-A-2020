@@ -21,6 +21,6 @@ class Conference extends Model
     }
 
     public function papers() {
-        return $this->hasMany(Paper::class);
+        return $this->hasMany(Paper::class, 'conf_id');
     }
 }
