@@ -10,7 +10,8 @@
 <div class="panel-body">
 	<!-- New Member Form -->
 	{!! Form::model($paper, [
-		'route' => ['paper.store'],
+		'route' => ['paper.update', $paper->id],
+		'method' => 'put',
 		'class' => 'form-horizontal'
 	]) !!}
 
@@ -20,7 +21,7 @@
 			'class' => 'control-label col-sm-3',
 		]) !!}
 		<div class="col-sm-9">
-		{!! Form::text('paper_id', null, [
+		{!! Form::text('paper_id', $paper->paper_id, [
 			'id' => 'paper-paper_id',
 			'class' => 'form-control',
 			'maxlength' => 50,
@@ -34,7 +35,7 @@
 			'class' => 'control-label col-sm-3',
 		]) !!}
 		<div class="col-sm-9">
-		{!! Form::text('name', null, [
+		{!! Form::text('name', $paper->name, [
 			'id' => 'paper-name',
 			'class' => 'form-control',
 			'maxlength' => 100,
@@ -44,13 +45,13 @@
 
 	<!-- Author ID -->
 	<div class="form-group row">
-		{!! Form::label('author-id', 'Author', [
+		{!! Form::label('author-id', 'Author ID', [
 			'class' => 'control-label col-sm-3',
 		]) !!}
 		<div class="col-sm-9">
 			{!! Form::select('author_id',
 				$authors,
-				null, [
+				$paper->author->id, [
 					'class' => 'form-control',
 					'placeholder' => '- Select Author -',
 				])
@@ -60,13 +61,13 @@
 
 	<!-- Author ID -->
 	<div class="form-group row">
-		{!! Form::label('conference-id', 'Conference', [
+		{!! Form::label('conference-id', 'Conference ID', [
 			'class' => 'control-label col-sm-3',
 		]) !!}
 		<div class="col-sm-9">
 			{!! Form::select('conf_id',
 				$conferences,
-				null, [
+				$paper->conference->id, [
 					'class' => 'form-control',
 					'placeholder' => '- Select Conference -',
 				])

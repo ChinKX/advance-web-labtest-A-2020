@@ -51,8 +51,15 @@ use App\Conference;
 				</td>
 				<td class="table-text">
 					<div>
-					<a href="{{ route('paper.destroy', $paper->id) }}">Delete</a>
+					<a href="/paper/<?php echo $paper->id; ?>/edit">Edit</a>
 					</div>
+				</td>
+				<td class="table-text">
+					<form action="/paper/<?php echo $paper->id; ?>" method="POST">
+						{{ csrf_field() }}
+						<input type="submit" value="Delete"/>
+						<input type="hidden" name="_method" value="DELETE">
+					</form>
 				</td>
 			</tr>
 			@endforeach
