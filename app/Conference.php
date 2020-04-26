@@ -21,6 +21,7 @@ class Conference extends Model
     }
 
     public function papers() {
+        // need to specify the foreign key because it didn't follow the naming convention
         return $this->hasMany(Paper::class, 'conf_id');
     }
 }

@@ -27,14 +27,38 @@ class CreateAuthorConferenceTable extends Migration
         });
 
         DB::table('author_conference')->insert([
-            ['author_id' => 3, 'conference_id' => 1],
-            ['author_id' => 2, 'conference_id' => 2],
-            ['author_id' => 1, 'conference_id' => 3],
-            ['author_id' => 3, 'conference_id' => 3],
-            ['author_id' => 4, 'conference_id' => 4],
-            ['author_id' => 5, 'conference_id' => 4],
-            ['author_id' => 4, 'conference_id' => 5],
-            ['author_id' => 5, 'conference_id' => 5]
+            [
+                'author_id' => 3,
+                'conference_id' => 1
+            ],
+            [
+                'author_id' => 2,
+                'conference_id' => 2
+            ],
+            [
+                'author_id' => 1,
+                'conference_id' => 3
+            ],
+            [
+                'author_id' => 3,
+                'conference_id' => 3
+            ],
+            [
+                'author_id' => 4,
+                'conference_id' => 4
+            ],
+            [
+                'author_id' => 5,
+                'conference_id' => 4
+            ],
+            [
+                'author_id' => 4,
+                'conference_id' => 5
+            ],
+            [
+                'author_id' => 5,
+                'conference_id' => 5
+            ]
         ]);
     }
 

@@ -20,7 +20,7 @@ class PaperController extends Controller
         $papers = Paper::with(['author', 'conference'])->get();
 
 		return view('papers.index', [
-		    'papers' => $papers,
+		    'papers' => $papers
 		]);
     }
 
@@ -87,7 +87,7 @@ class PaperController extends Controller
 		$authors = Author::pluck('name', 'id');
         $conferences = Conference::pluck('name', 'id');
 
-		return view('members.edit', [
+		return view('papers.edit', [
             'paper' => $paper,
             'authors' => $authors,
             'conferences' => $conferences

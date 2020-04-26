@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Author;
 use Illuminate\Http\Request;
 use App\Http\Requests\SaveAuthorRequest;
+use App\Http\Resources\AuthorCollection;
+use App\Http\Resources\AuthorResource;
 
 class AuthorController extends Controller
 {
@@ -15,7 +17,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return Author::all();
+        return new AuthorCollection(Author::all());
     }
 
     /**
@@ -31,7 +33,7 @@ class AuthorController extends Controller
 
             $author->conferences()->sync($request->get('conferences'));
 
-            return $author;
+            return new AuthorResource($author);
         }
     }
 
@@ -43,7 +45,7 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        return Author::findOrFail($id);
+        return new AuthorResource(Author::findOrFail($id));
     }
 
     /**
@@ -60,7 +62,7 @@ class AuthorController extends Controller
 
         $author->conferences()->sync($request->get('conferences'));
 
-        return $author;
+        return new AuthorResource($author);
     }
 
     /**

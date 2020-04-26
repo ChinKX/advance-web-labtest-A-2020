@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CreatePapersTable extends Migration
 {
@@ -29,11 +30,41 @@ class CreatePapersTable extends Migration
         });
 
         DB::table('papers')->insert([
-            ['paper_id' => 'PPID-1100055303', 'name' => 'Hack Methodologies', 'author_id' => 1, 'conf_id' => 1, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['paper_id' => 'PPID-1100056332', 'name' => 'IoT Techniques', 'author_id' => 2, 'conf_id' => 2, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['paper_id' => 'PPID-1100067301', 'name' => 'Analysing Using NLP', 'author_id' => 3, 'conf_id' => 3, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['paper_id' => 'PPID-1100067304', 'name' => 'A Novel Big Data Analysis Algorithm', 'author_id' => 4, 'conf_id' => 3, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['paper_id' => 'PPID-1100057305', 'name' => 'Augmented Medical Study', 'author_id' => 4, 'conf_id' => 4, "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()]
+            [
+                'paper_id' => 'PPID-1100055303',
+                'name' => 'Hack Methodologies',
+                'author_id' => 1, 'conf_id' => 1,
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'paper_id' => 'PPID-1100056332',
+                'name' => 'IoT Techniques',
+                'author_id' => 2, 'conf_id' => 2,
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'paper_id' => 'PPID-1100067301',
+                'name' => 'Analysing Using NLP',
+                'author_id' => 3, 'conf_id' => 3,
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'paper_id' => 'PPID-1100067304',
+                'name' => 'A Novel Big Data Analysis Algorithm',
+                'author_id' => 4, 'conf_id' => 3,
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'paper_id' => 'PPID-1100057305',
+                'name' => 'Augmented Medical Study',
+                'author_id' => 4, 'conf_id' => 4,
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ]
         ]);
     }
 

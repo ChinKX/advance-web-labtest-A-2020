@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Conference;
 use Illuminate\Http\Request;
 use App\Http\Requests\SaveConferenceRequest;
+use App\Http\Resources\ConferenceCollection;
+use App\Http\Resources\ConferenceResource;
 
 class ConferenceController extends Controller
 {
@@ -15,7 +17,7 @@ class ConferenceController extends Controller
      */
     public function index()
     {
-        return Conference::all();
+        return new ConferenceCollection(Conference::all());
     }
 
     /**
@@ -31,7 +33,7 @@ class ConferenceController extends Controller
 
             $conference->authors()->sync($request->get('authors'));
 
-            return $conference;
+            return new ConferenceResource($conference);
         }
     }
 
@@ -43,7 +45,7 @@ class ConferenceController extends Controller
      */
     public function show($id)
     {
-        return Conference::findOrFail($id);
+        return new ConferenceResource(Conference::findOrFail($id));
     }
 
     /**
@@ -60,7 +62,7 @@ class ConferenceController extends Controller
 
         $conference->authors()->sync($request->get('authors'));
 
-        return $conference;
+        return new ConferenceResource($conference);
     }
 
     /**

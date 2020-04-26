@@ -23,6 +23,7 @@ class Paper extends Model
     }
 
     public function conference() {
+        // need to specify the foreign key because it didn't follow the naming convention
         return $this->belongsTo(Conference::class, 'conf_id');
     }
 }

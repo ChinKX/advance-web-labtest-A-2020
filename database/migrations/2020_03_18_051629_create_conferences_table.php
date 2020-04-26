@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class CreateConferencesTable extends Migration
 {
@@ -23,11 +24,36 @@ class CreateConferencesTable extends Migration
         });
 
         DB::table('conferences')->insert([
-            ['conf_id' => 'CID-11000553', 'name' => 'Hackathon Con', "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['conf_id' => 'CID-11000563', 'name' => 'IoT Technologies', "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['conf_id' => 'CID-11000673', 'name' => 'Data Science Sym', "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['conf_id' => 'CID-11000573', 'name' => 'Augmented Engineering Con', "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()],
-            ['conf_id' => 'CID-11000565', 'name' => 'Game Technologies', "created_at" =>  \Carbon\Carbon::now(), "updated_at" => \Carbon\Carbon::now()]
+            [
+                'conf_id' => 'CID-11000553',
+                'name' => 'Hackathon Con',
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'conf_id' => 'CID-11000563',
+                'name' => 'IoT Technologies',
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'conf_id' => 'CID-11000673',
+                'name' => 'Data Science Sym',
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'conf_id' => 'CID-11000573',
+                'name' => 'Augmented Engineering Con',
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ],
+            [
+                'conf_id' => 'CID-11000565',
+                'name' => 'Game Technologies',
+                "created_at" =>  Carbon::now(),
+                "updated_at" => Carbon::now()
+            ]
         ]);
     }
 

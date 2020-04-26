@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Paper;
 use Illuminate\Http\Request;
 use App\Http\Requests\SavePaperRequest;
+use App\Http\Resources\PaperCollection;
+use App\Http\Resources\PaperResource;
 
 class PaperControllerApi extends Controller
 {
@@ -15,7 +17,7 @@ class PaperControllerApi extends Controller
      */
     public function index()
     {
-        return Paper::all();
+        return new PaperCollection(Paper::all());
     }
 
     /**
@@ -29,7 +31,7 @@ class PaperControllerApi extends Controller
         if ($request->validated()) {
             $paper = Paper::create($request->all());
 
-            return $paper;
+            return new PaperResource($paper);
         }
     }
 
@@ -41,7 +43,7 @@ class PaperControllerApi extends Controller
      */
     public function show($id)
     {
-        return Paper::findOrFail($id);
+        return new PaperResource(Paper::findOrFail($id));
     }
 
     /**
@@ -56,7 +58,7 @@ class PaperControllerApi extends Controller
         $paper = Paper::findOrFail($id);
         $paper->update($request->all());
 
-        return $paper;
+        return new PaperResource($paper);
     }
 
     /**
