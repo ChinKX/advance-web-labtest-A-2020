@@ -17,6 +17,8 @@ class AuthorResource extends Resource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'conferences' => new ConferenceCollection($this->whenLoaded('conferences')),
+            'papers' => new PaperCollection($this->whenLoaded('papers')),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

@@ -17,7 +17,8 @@ class ConferenceController extends Controller
      */
     public function index()
     {
-        return new ConferenceCollection(Conference::all());
+        // return new ConferenceCollection(Conference::all());
+        return new ConferenceCollection(Conference::with(['authors', 'papers'])->get());
     }
 
     /**
@@ -45,7 +46,7 @@ class ConferenceController extends Controller
      */
     public function show($id)
     {
-        return new ConferenceResource(Conference::findOrFail($id));
+        return new ConferenceResource(Conference::with(['authors', 'papers'])->findOrFail($id));
     }
 
     /**

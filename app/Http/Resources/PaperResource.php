@@ -19,7 +19,9 @@ class PaperResource extends Resource
             'paper_id' => $this->paper_id,
             'name' => $this->name,
             'author_id' => $this->author_id,
+            'author' => new AuthorResource($this->whenLoaded('author')),
             'conf_id' => $this->conf_id,
+            'conference' => new ConferenceResource($this->whenLoaded('conference')),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

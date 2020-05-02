@@ -17,7 +17,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return new AuthorCollection(Author::all());
+        // return new AuthorCollection(Author::all());
+        return new AuthorCollection(Author::with(['conferences', 'papers'])->get());
     }
 
     /**
@@ -45,7 +46,7 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-        return new AuthorResource(Author::findOrFail($id));
+        return new AuthorResource(Author::with(['conferences', 'papers'])->findOrFail($id));
     }
 
     /**

@@ -17,7 +17,8 @@ class PaperControllerApi extends Controller
      */
     public function index()
     {
-        return new PaperCollection(Paper::all());
+        // return new PaperCollection(Paper::all());
+        return new PaperCollection(Paper::with(['author', 'conference'])->get());
     }
 
     /**
@@ -43,7 +44,7 @@ class PaperControllerApi extends Controller
      */
     public function show($id)
     {
-        return new PaperResource(Paper::findOrFail($id));
+        return new PaperResource(Paper::with(['author', 'conference'])->findOrFail($id));
     }
 
     /**
